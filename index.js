@@ -18,7 +18,7 @@ exports.scheduledFunctionVideo = functions.pubsub.schedule('every 36 hours').onR
         redirect: 'follow'
     };
     
-    fetch("", requestOptions)
+    fetch("https://youtube.googleapis.com/youtube/v3/search?maxResults=20&order=date&q=flamengo&key=AIzaSyDy11Goc5ma3ry3cYc0WMmxj5OucvCSMVA", requestOptions)
         .then(response => response.json())
         .then(res => { return Object.values(res) })
         .then((res) => { getArrayEndpoint(res) })
@@ -54,7 +54,7 @@ exports.scheduledFunctionNews = functions.pubsub.schedule('every 12 hours').onRu
 
     arrayReceive = []
 
-    fetch("", requestOptions)
+    fetch("https://www.flaresenha.com//wp-json/wp/v2/posts?_embed", requestOptions)
         .then(response => response.json())
         .then(res => { return Object.values(res) })
         .then((res) => { getArrayEndpoint(res) })
